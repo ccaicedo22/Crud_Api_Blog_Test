@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
@@ -27,5 +23,17 @@ Route::group([
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('refresh', [AuthController::class, 'refresh'])->name('refresh');
     Route::post('me', [AuthController::class, 'me'])->name('me');
+});
+
+Route::middleware(['jwt.verify'])->group(function () {
+    
+    // Rutas para Autores
+    Route::prefix('authors')->group(function () {
+    });
+
+    // Rutas para Blogs 
+    Route::prefix('blogs')->group(function () {
+    });
+
 });
 
