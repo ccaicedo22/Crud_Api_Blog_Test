@@ -1,66 +1,117 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# <img src="https://w7.pngwing.com/pngs/399/620/png-transparent-laravel-hd-logo.png" alt="Laravel Logo" width="50" height="50"/> Blogs - API
 
-## About Laravel
+## Carlos Andres Balaguera Caicedo - API- LARAVEL-JWT
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Prueba realizada del 28/03/2025 al 02/03/2025
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Bienvenido. Esta es la prueba técnica para validar mis conocimientos y fortalezas en el mundo del Backend utilizando Laravel, demostrando así mi capacidad de arquitectura de código, patrones de diseño, clean code, REST, y demás para el mundo de laravel.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Implementaciones realizadas:
 
-## Learning Laravel
+- **Autenticación JWT**: Configuración e integración de JWT para proteger las rutas de la API, garantizando que solo usuarios autenticados puedan acceder a las operaciones CRUD.
+- **CRUD de Autores**: Creación del `AuthorController` para manejar las operaciones CRUD de autores.
+- **CRUD de Blogs**: Creación del `PostController` para manejar las operaciones CRUD de blogs.
+- **Relación Author-Post**: Establecimiento de la relación uno-a-muchos entre los modelos `Author` y `Post`, permitiendo que un autor pueda tener múltiples blogs.
+- **Protección de Rutas**: Implementación de middleware para asegurar que todas las rutas relacionadas con tareas estén protegidas por autenticación JWT.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# Contenido
+* Instrucciones para el correcto funcionamiento
+* Herramientas de desarrollo utilizadas
+* ¿DESEAS PROBAR LA API EN POSTMAN?
 
-## Laravel Sponsors
+## Instalación:
+1. **Crear una base de datos MySQL**: Crea una base de datos en tu servidor MySQL donde se almacenarán los datos del proyecto.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+2. **Clonar o descargar el proyecto**:
+    - Clona el repositorio utilizando Git:
+      ```bash
+      git clone <URL-del-repositorio>
+      ```
+    - O descarga el proyecto como un archivo ZIP y extráelo en el directorio de tu servidor web.
 
-### Premium Partners
+3. **Acceder mediante terminal a la carpeta del proyecto**:
+    - Navega hasta la carpeta raíz del proyecto:
+      ```bash
+      cd <nombre-del-proyecto>
+      ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+4. **Instalar dependencias**:
+    - Ejecuta el siguiente comando para instalar las dependencias del proyecto:
+      ```bash
+      composer install
+      ```
 
-## Contributing
+5. **Configurar el archivo de entorno**:
+    - Copia el archivo de entorno de ejemplo y renómbralo a `.env`:
+      ```bash
+      cp .env.example .env
+      ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+6. **Generar la clave de la aplicación**:
+    - Genera una clave de la aplicación ejecutando:
+      ```bash
+      php artisan key:generate
+      ```
 
-## Code of Conduct
+7. **Configurar la base de datos**:
+    - Abre el archivo `.env` en un editor de texto y configura los detalles de tu base de datos:
+      ```plaintext
+      DB_CONNECTION=mysql
+      DB_HOST=127.0.0.1
+      DB_PORT=3306
+      DB_DATABASE=nombre_de_tu_base_de_datos
+      DB_USERNAME=tu_usuario
+      DB_PASSWORD=tu_contraseña
+      ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+8. **Generar el JWT Secret**:
+    - Genera el secreto JWT necesario para la autenticación:
+      ```bash
+      php artisan jwt:secret
+      ```
+9. **Generar las migraciones y sedders**:
+    - Genera todas las tablas y sedders del proyecto:
+      ```bash
+      php artisan migrate --seed
 
-## Security Vulnerabilities
+      ```
+      
+10. **Levantar el servidor**:
+    - Inicia el servidor de desarrollo de Laravel con:
+      ```bash
+      php artisan serve
+      ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## HERRAMIENTAS DE DESARROLLO UTILIZADAS
+* Laravel Framework v10
+* PHP 8.1
+* Visual Studio Code
+* Postman
+* XAMPP
+* MySQL Workbench
+* Git
+* GitHub
 
-## License
+## Diagrama de la Base de Datos
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+A continuación se muestra el diagrama de la base de datos que ilustra la estructura y relaciones entre las tablas de la aplicación:
+
+![Diagrama de la Base de Datos](https://github.com/ccaicedo22/Crud_Api_Blog_Test/blob/main/public/diagrama.png)
+
+
+## ¿DESEAS PROBAR LA API EN POSTMAN?
+Si deseas probar la API en Postman, sigue estos pasos:
+1. Importa la colección de Postman que se encuentra en el repositorio (si está disponible) o crea manualmente las solicitudes según las rutas de la API.
+2. Asegúrate de que el servidor de desarrollo de Laravel esté en ejecución.
+3. Utiliza la URL base `http://127.0.0.1:8000/api` para todas las solicitudes API.
+4. Realiza una solicitud POST a `/auth/login` con las credenciales de un usuario registrado para obtener el token JWT.
+5. Incluye el token en las solicitudes posteriores usando el encabezado `Authorization: Bearer <tu_token_jwt>` para acceder a las rutas protegidas.
+
+## Colección de Postman
+
+Puedes utilizar la siguiente colección de Postman para validar la documentación de la API del proyecto, así como para interactuar con los endpoints utilizados.
+
+<a href="https://documenter.getpostman.com/view/28758682/2sAYdin8yr" target="_blank">Ver Documentación API</a>
