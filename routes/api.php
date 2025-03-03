@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+Route::prefix('public')->group(function () {
+    Route::get('/', [PostController::class, 'index'])->name('public.posts.index'); 
+    Route::get('/{id}', [PostController::class, 'show'])->name('public.posts.show'); 
+});
 
 Route::group([
     'middleware' => 'api',
@@ -38,7 +44,12 @@ Route::middleware(['jwt.verify'])->group(function () {
     });
 
     // Rutas para Blogs 
-    Route::prefix('blogs')->group(function () {
+    Route::prefix('posts')->group(function () {
+        Route::get('/', [PostController::class, 'index'])->name('posts.index'); 
+        Route::post('/', [PostController::class, 'store'])->name('posts.store');
+        Route::get('/{id}', [PostController::class, 'show'])->name('posts.show'); 
+        Route::put('/{id}', [PostController::class, 'update'])->name('posts.update'); 
+        Route::delete('/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
     });
 
 });
